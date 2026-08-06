@@ -1,6 +1,5 @@
 [Unit]
 Description=Calibration
-After=mavproxy.service
 
 [Service]
 Type=simple
