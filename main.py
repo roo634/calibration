@@ -1,14 +1,42 @@
+from Style import Style
+
+from gstpipeline import GstPipeline
+
 from renderer import Renderer
 
-import cv2
+
+def main():
+
+    style = Style()
+
+    pipeline = GstPipeline(style)
+    renderer = Renderer()
+
+    pipeline.start()
+
+    running = True
+
+    while running:
+        try:
+
+            frame = pipeline.get_frame()
+
+            if frame is None:
+                continue
+
+            frame = renderer.process(frame)
+
+            pipeline.push_frame(frame)
 
 
-frame = cv2.imread("C:/Users/Student/Downloads/1280x720 image.jpg")
+        except KeyboardInterrupt:
+            running = False
 
-renderer = Renderer()
 
-frame = renderer.process(frame)
+    pipeline.stop()
 
-cv2.imshow('image',frame)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    main()
+
