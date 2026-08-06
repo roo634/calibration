@@ -1,0 +1,15 @@
+[Unit]
+Description=Calibration
+After=mavproxy.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/calibration/.venv/bin/python3 /home/pi/calibration/main.py
+Restart=always
+RestartSec=3
+WorkingDirectory=/home/pi/calibration
+
+
+[Install]
+WantedBy=multi-user.target

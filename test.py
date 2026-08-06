@@ -11,4 +11,4 @@ frame = renderer.process(frame)
 
 cv2.imshow('image',frame)
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+
