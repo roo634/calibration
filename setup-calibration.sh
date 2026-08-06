@@ -58,6 +58,10 @@ echo "Done."
 
 systemctl enable calibration
 
+# Remove history 
+rm /home/pi/.bash_history
+history -c
+
 echo
 echo "Rebooting in 10 seconds"
 sleep 10
