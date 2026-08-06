@@ -102,14 +102,7 @@ class GstPipeline:
         try:
 
             depth = self.frame_queue.qsize()
-            
-            self.queue_depth.set(depth)
-
             frame = self.frame_queue.get_nowait()
-
-            self.queue_depth.set(
-                self.frame_queue.qsize()
-            )
 
             return frame
         
