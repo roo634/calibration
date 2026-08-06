@@ -1,4 +1,4 @@
-#! /bin/bashrc
+#! /bin/bash
 
 echo "Calibration Configuration"
 echo
