@@ -10,7 +10,7 @@ class Style:
     #Line 
 
     line_colour = (180, 105, 255) 
-    line_width = 3
+    line_width = 2
 
     #Sizes
     circle_rad = cam_width//64
