@@ -4,10 +4,10 @@ Description=Calibration
 [Service]
 Type=simple
 User=root
-ExecStart=/home/pi/calibration/.venv/bin/python3 /home/pi/calibration/main.py
+ExecStart=/home/pi/calibration-release/.venv/bin/python3 /home/pi/calibration-release/main.py
 Restart=always
 RestartSec=3
-WorkingDirectory=/home/pi/calibration
+WorkingDirectory=/home/pi/calibration-release
 
 
 [Install]
