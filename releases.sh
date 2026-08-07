@@ -8,6 +8,7 @@ mkdir "$RELEASE"
 
 # Copy required files
 cp *.py           "$RELEASE/"
+rm test.py      "$RELEASE/"
 cp setup-calibration.sh              "$RELEASE/"
 cp config.txt       "$RELEASE/"
 cp -r services      "$RELEASE/"
