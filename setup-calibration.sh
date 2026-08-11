@@ -15,8 +15,6 @@ cp services/*.service /lib/systemd/system
 # Setup the pi config.txt file (controls drivers)
 cp config.txt /boot/firmware/config.txt
 
-set -e
-
 echo "Installing dependcies..."
 
 sudo apt update
