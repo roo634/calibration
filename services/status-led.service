@@ -1,0 +1,11 @@
+[Unit]
+Description=LED Blinking Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/calibration-release/.venv/bin/python3 /home/pi/calibration-release/status-led.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
