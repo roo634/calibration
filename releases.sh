@@ -13,6 +13,12 @@ cp setup-calibration.sh              "$RELEASE/"
 cp config.txt       "$RELEASE/"
 cp -r services      "$RELEASE/"
 
+# Compile python files
+python3.13 -m compileall -b -q "$RELEASE/"
+
+# Remove the original Python source
+rm -f "$RELEASE"/*.py
+
 
 # Create zip
 zip -r "$RELEASE.zip" "$RELEASE"

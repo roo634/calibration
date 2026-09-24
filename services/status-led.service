@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/home/pi/calibration-release/.venv/bin/python3 /home/pi/calibration-release/status-led.py
+ExecStart=/home/pi/calibration-release/.venv/bin/python3 /home/pi/calibration-release/status-led.pyc
 Restart=on-failure
 
 [Install]

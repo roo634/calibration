@@ -223,7 +223,7 @@ class GstPipeline:
                     srtsink
                         uri=srt://:9000
                         mode=listener
-                        latency=50
+                        latency=300
                         wait-for-connection=true
                 """
             else:
