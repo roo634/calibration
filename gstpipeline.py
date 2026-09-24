@@ -217,9 +217,6 @@ class GstPipeline:
                         rc-lookahead=0
                         byte-stream=true
                     !
-                    mpegtsmux
-                        alignment=7
-                    !
                     srtsink
                         uri=srt://:9000
                         mode=listener
@@ -252,9 +249,6 @@ class GstPipeline:
                         level=(string)4
                     !
                     h264parse
-                    !
-                    mpegtsmux
-                        alignment=7
                     !
                     srtsink
                         uri=srt://:9000
