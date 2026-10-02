@@ -34,7 +34,6 @@ sudo apt install -y \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
     gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-ugly \
     gstreamer1.0-libcamera \
     ffmpeg
 
@@ -53,9 +52,25 @@ python3 -m pip install PyYAML mavproxy
 python3 -m pip install future
 
 echo
-echo "Done."
+echo "Done with instillations."
 
+
+#wipe timezone
+sudo timedatectl set-timezone UTC
+echo 'Etc/UTC' | sudo tee /etc/timezone
+
+#wipe machine ID
+sudo truncate -s 0 /etc/machine-id
+sudo rm -f /var/lib/dbus/machine-id
+
+#Enable calibration
 systemctl enable calibration
+
+#Enable LED
+systemctl enable status-led
+
+#Enable ssh
+systemctl enable ssh
 
 # Remove this file and history
 rm /home/pi/calibration*/setup-calibration.sh 

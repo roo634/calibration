@@ -25,22 +25,30 @@ def get_ip_address(ifname):
     except IOError:
         return None
 
+def check_network():
+    try:
+        with socket.create_connection(("8.8.8.8", 53), timeout=CHECK_INTERVAL):
+            return True
+    except OSError:
+        return False
+
+
 def main():
     print(f"Starting network LED monitor for {INTERFACE}...")
-    
-    # Phase 1: Turn LED solid ON until IP is assigned
-    led.on()
     while True:
-        ip = get_ip_address(INTERFACE)
-        if ip:
-            print(f"Interface {INTERFACE} configured with IP: {ip}")
-            break
-        time.sleep(CHECK_INTERVAL)
+        # Phase 1: Turn LED solid ON until IP is assigned and has network
+        led.on()
+        while True:
+            ip = get_ip_address(INTERFACE)
+            if ip and check_network():
+                print(f"Interface {INTERFACE} configured with IP: {ip}")
+                break
+            time.sleep(CHECK_INTERVAL)
 
-    # Phase 2: Blink continuously once IP is found
-    while True:
-        led.toggle()
-        time.sleep(BLINK_INTERVAL)
+        # Phase 2: Blink continuously once IP is found and has network
+        while check_network():
+            led.toggle()
+            time.sleep(BLINK_INTERVAL)
 
 if __name__ == '__main__':
     try:
