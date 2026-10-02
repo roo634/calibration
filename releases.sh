@@ -9,6 +9,7 @@ mkdir "$RELEASE"
 # Copy required files
 cp *.py           "$RELEASE/"
 cp setup-calibration.sh              "$RELEASE/"
+cp change_pswd.sh              "$RELEASE/"
 cp config.txt       "$RELEASE/"
 cp -r services      "$RELEASE/"
 
