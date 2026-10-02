@@ -80,8 +80,8 @@ history -c
 
 
 echo
-echo "Rebooting in 10 seconds"
+echo "Shutting down in 10 seconds"
 sleep 10
-sudo reboot
+sudo shutdown now
 
 
