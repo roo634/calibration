@@ -53,7 +53,7 @@ dtoverlay=dwc2,dr_mode=host
 dtoverlay=nospi10
 
 [all]
-enable_uart=1
+enable_uart=0
 dtoverlay=dwc2,dr_mode=host
-dtoverlay=disable-bt
-dtoverlay=disable-wifi
+dtoverlay=disable-bt 
+dtoverlay=disable-wifi  

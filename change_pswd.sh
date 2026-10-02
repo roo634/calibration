@@ -2,9 +2,6 @@
 
 username="pi"
 
-read -s -p "Enter secret key: " secret
-echo
-
 serial=$(awk '/Serial/ {print $3}' /proc/cpuinfo)
 
 echo 
@@ -13,12 +10,11 @@ echo "$serial"
 
 sleep 10
 
-new_password=$(
-    printf '%s' "$serial" |
-    openssl dgst -sha256 -hmac "$secret" |
-    awk '{print $2}'
-    cut -c1-16
-)
+echo "Enter secret key:"
+read secret
+echo
+
+new_password=$(printf '%s' "$serial" | openssl dgst -sha256 -hmac "$secret" | awk '{print $2}' | cut -c1-16)
 
 echo 
 echo "Password is"

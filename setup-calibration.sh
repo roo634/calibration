@@ -8,9 +8,12 @@ if (( $EUID != 0 )); then
 fi
 echo
 
+# Remove the getty from serial 0 
+sed -i 's/console=serial0,115200//' /boot/firmware/cmdline.txt
+systemctl disable --now serial-getty@serial0.service
+
 # Move the service files first....
 cp services/*.service /lib/systemd/system
-
 
 # Setup the pi config.txt file (controls drivers)
 cp config.txt /boot/firmware/config.txt
